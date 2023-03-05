@@ -1,0 +1,6 @@
+#commands
+
+map help(h) -- opens up help page
+map drive(d) -- shows how far the drive is from current location
+map walk(w) -- map walk shows how far the walk is from the current location
+map history(-h) -- shows history along with date and time
