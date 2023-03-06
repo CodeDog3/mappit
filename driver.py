@@ -3,19 +3,19 @@ import webbrowser
 import pyperclip
 import os
 from datetime import date
-import subprocess
+import subprocess as sp
 import re
 
-
+###################################################################################
 def Help():
     os.chdir('c:\\Users\\jonbr\\mappit\\mappit')
-    if (os.path.exists(os.getcwd+'\\help.txt')):
-        os.system('help.txt')
+    sp.Popen(['notepad.exe', 'help.txt'])
+    return True
 
 def History():
     os.chdir('c:\\Users\\jonbr\\mappit\\mappit')
-    if (os.path.exists(os.getcwd+'\\history.txt')):
-        os.system('history.txt')
+    sp.Popen(['notepad.exe', 'history.txt'])
+    return True
 
 def write_history(address):
     os.chdir('c:\\Users\\jonbr\\mappit\mappit')
@@ -26,29 +26,41 @@ def write_history(address):
     history.write('==========================\n')
     history.write(day + ': ' + address+'\n')
     history.close()
+####################################################################################
 
-arguments = sys.argv[1:]
-# test = ','.join(arguments)
-# tester = re.compile(r'(*,){1}')
-# tt = tester.search(test)
+#used to stop web execution if flag is used
+blocking = False
+#greedy matching to find if any flags occur
+flagCheck = re.compile(r'-+(h|d|w).*')
+mo = flagCheck.search(' '.join(sys.argv[1:]))
 
 try:
-    if (sys.argv == 'help' or 'h'):
-        Help()
-    elif (sys.argv[1].lower() == 'drive' or 'd'):
-        print("a")
-    elif (sys.argv[1].lower() == 'walk' or 'w'):
-        print("b")
-    elif (sys.argv[1] == ('history' or '-h')):
-        #webbrowser.open('https://www.google.com/maps/place/')
-        History()
+    if (mo.group() == '-help' or mo.group() == '-h'):
+        print('works for help')
+        #returns true and blocks
+        blocking = Help()
+    elif (mo.group() == '-drive' or mo.group() == '-d'):
+        print("works for drive")
+        blocking = True
+    elif (mo.group() == '-walk' or mo.group() == '-w'):
+        print("works for walk")
+        blocking = True
+    elif (mo.group() == '-history' or mo.group() == '--h'):
+        print('works for history')
+        #returns true and blocks
+        blocking = History()
+        
 except:
+    print("initiating lookup")
+
+if(blocking == False):
     if (len(sys.argv)) > 1:
+        arguments = sys.argv[1:]
         address = ' '.join(arguments)
     else:
         address = pyperclip.paste()
 
-    webbrowser.open('https://www.google.com/maps/place/' +address)
+    webbrowser.open('https://www.google.com/maps/place/' + address)
     #keeps a history of searches in history.txt
     write_history(address)
 
