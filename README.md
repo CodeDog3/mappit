@@ -2,6 +2,7 @@
 script finds the users current distance from given address copied to clipboard
 
 =====================================================================
+
 to use:
 1. create a path environment variable to where you have the script saved
 2. make sure the bat file can find the directory
