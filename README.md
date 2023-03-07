@@ -2,7 +2,7 @@
 script finds the users current distance from given address copied to clipboard
 
 =====================================================================
-
+```
 to use:
 1. create a path environment variable to where you have the script saved
 2. make sure the bat file can find the directory
@@ -26,4 +26,5 @@ alternatively, if you don't have address in clipboard you can press windows key 
 -practice subproccess 
 -practice locating/writing to file directories in os
 -practice batch scripting
+```
 
