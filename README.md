@@ -1,4 +1,4 @@
-# mappit
+# mappit(completed as of 3/7/23)
 script finds the users current distance from given address copied to clipboard
 
 =====================================================================
@@ -12,6 +12,18 @@ to use:
 ----------------------------------------------------------
 alternatively, if you don't have address in clipboard you can press windows key + r then type map followed by the address.
 ----------------------------------------------------------
-includes help pages (-h or -help)
-includes history page (--h or -history)
+-includes help pages (-h or -help)
+-includes history page (--h or -history)
+-includes drive options (-d or -drive)
+-includes walk options (-w or -walk)
+----------------------------------------------------------
+#Reasons for doing
+-to have a convenient tool to use at anytime
+-practice regex
+-learn selenium
+-practive web scraping
+-tune up on python
+-practice subproccess 
+-practice locating/writing to file directories in os
+-practice batch scripting
 
