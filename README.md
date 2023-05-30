@@ -4,7 +4,8 @@ script finds the users current distance from given address copied to clipboard
 ```
 to use:
 1. create a path environment variable to where you have the script saved
-2. make sure the bat file can find the directory
+2. update bat file to find the proper directory
+3. type "py -m pip install pyperclip" in the terminal followed up by "py -m pip install selenium"
 3. select address you want copied and copy to clipboard
 4. press windows key + r
 5. type map and press enter
